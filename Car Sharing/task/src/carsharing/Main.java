@@ -1,0 +1,41 @@
+package carsharing;
+
+import java.sql.*;
+
+public class Main {
+
+        // JDBC driver name and database URL
+        static final String JDBC_DRIVER = "org.h2.Driver";
+        static final String DB_URL = "jdbc:h2:file:C:\\Users\\JJ\\IdeaProjects\\Car Sharing\\Car Sharing\\task\\src\\carsharing\\db\\carsharing;IFEXISTS=TRUE";
+
+        //  Database credentials
+        static final String USER = "sa";
+        static final String PASS = "";
+
+        public static void main(String[] args) throws Exception {
+
+            Connection conn = null;
+            Statement stmt = null;
+
+
+            boolean tableExists = false;
+
+            conn = DriverManager.getConnection(DB_URL,USER,PASS); // get a DB connection from somewhere
+            ResultSet rset = conn.getMetaData().getTables(null, null, "COMPANY", null);
+            if (rset.next())
+            {
+                tableExists = true;
+            }
+            System.out.println(tableExists);
+
+            //Creating Table
+            //CreateTable.createTable(conn, stmt);
+
+            //DropTable.dropTable(conn, stmt);
+
+        }
+
+
+
+
+}
