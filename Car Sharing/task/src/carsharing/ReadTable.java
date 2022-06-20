@@ -19,7 +19,7 @@ public class ReadTable {
 
             // STEP 2: Open a connection
 
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            conn = DriverManager.getConnection(DB_URL);
 
             // STEP 3: Execute a query
 
