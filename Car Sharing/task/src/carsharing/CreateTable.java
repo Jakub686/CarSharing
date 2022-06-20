@@ -26,13 +26,13 @@ public class CreateTable {
             Class.forName(JDBC_DRIVER);
 
             //STEP 2: Open a connection
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            conn = DriverManager.getConnection(DB_URL);
 
             //STEP 3: Execute a query
             stmt = conn.createStatement();
-            String sql = "CREATE TABLE   COMPANY " +
+            String sql = "CREATE TABLE IF NOT EXISTS COMPANY " +
                     "(id INTEGER not NULL, " +
-                    " first VARCHAR(255), " +
+                    " name VARCHAR(255), " +
                     " PRIMARY KEY ( id ))";
             stmt.executeUpdate(sql);
 
