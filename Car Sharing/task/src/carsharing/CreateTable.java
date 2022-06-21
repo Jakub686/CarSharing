@@ -16,11 +16,11 @@ public class CreateTable {
     static final String USER = "sa";
     static final String PASS = "";
 
-    public static void createTable(Connection conn, Statement stmt) {
+    public static void createTable() {
 
 
-        conn = null;
-        stmt = null;
+        Connection conn = null;
+        Statement stmt = null;
         try {
             // STEP 1: Register JDBC driver
             Class.forName(JDBC_DRIVER);

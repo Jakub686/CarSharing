@@ -6,23 +6,24 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DropTable {
-    // JDBC driver name and database URL
-    static final String JDBC_DRIVER = "org.h2.Driver";
-    static final String DB_URL = "jdbc:h2:file:C:\\Users\\JJ\\IdeaProjects\\Car Sharing\\Car Sharing\\task\\src\\carsharing\\db\\carsharing";
+
 
     //  Database credentials
     static final String USER = "sa";
     static final String PASS = "";
 
 
-    public static void dropTable(Connection conn, Statement stmt) {
+    public static void dropTable() {
+
+        Connection conn = null;
+        Statement stmt = null;
 
         try {
             // STEP 1: Register JDBC driver
-            Class.forName(JDBC_DRIVER);
+            Class.forName(Main.JDBC_DRIVER);
 
             //STEP 2: Open a connection
-            conn = DriverManager.getConnection(DB_URL);
+            conn = DriverManager.getConnection(Main.DB_URL);
 
             //STEP 3: Execute a query
             stmt = conn.createStatement();

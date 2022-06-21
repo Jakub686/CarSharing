@@ -1,7 +1,5 @@
 package carsharing;
 
-import java.sql.*;
-
 public class Main {
 
     // JDBC driver name and database URL
@@ -14,29 +12,14 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        Connection conn = null;
-        Statement stmt = null;
+        //Creating Table if exists
+        CreateTable.createTable();
 
-        boolean tableExists = false;
+        MenuMain.mainMenu();
+//        InsertTable.insertTable();
+//        ReadTable.readTable();
 
-        //Creating Table
-        CreateTable.createTable(conn, stmt);
-        InsertTable.insertTable(conn, stmt);
-        ReadTable.readTable(conn, stmt);
-        //isTableExists(stmt, tableExists);
 
-    }
-
-    private static void isTableExists(Statement stmt, boolean tableExists) throws Exception {
-        Connection conn;
-        conn = DriverManager.getConnection(DB_URL); // get a DB connection from somewhere
-        ResultSet rset = conn.getMetaData().getTables(null, null, "COMPANY", null);
-
-        if (rset.next()) {
-            tableExists = true;
-            //DropTable.dropTable(conn, stmt);
-            System.out.println("table exists");
-        }
     }
 
 }

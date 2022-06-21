@@ -4,42 +4,44 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 public class InsertTable {
 
-    // JDBC driver name and database URL
-    static final String JDBC_DRIVER = "org.h2.Driver";
-    static final String DB_URL = "jdbc:h2:file:C:\\Users\\JJ\\IdeaProjects\\Car Sharing\\Car Sharing\\task\\src\\carsharing\\db\\carsharing";
 
     //  Database credentials
     static final String USER = "sa";
     static final String PASS = "";
 
-    public static void insertTable(Connection conn, Statement stmt) {
+    public static void insertTable() {
+        Scanner scanner = new Scanner(System.in);
+
+
+        View.showEnterTheCompanyName();
+        String input = scanner.nextLine();
+
+
+        Connection conn = null;
+        Statement stmt = null;
+
         try{
             // STEP 1: Register JDBC driver
-            Class.forName(JDBC_DRIVER);
+            Class.forName(Main.JDBC_DRIVER);
 
             // STEP 2: Open a connection
 
-            conn = DriverManager.getConnection(DB_URL);
+            conn = DriverManager.getConnection(Main.DB_URL);
             conn.setAutoCommit(true);
 
 
             // STEP 3: Execute a query
             stmt = conn.createStatement();
-            String sql = "INSERT INTO COMPANY(name) VALUES('ZARA')";
+            String sql ="";
 
-            stmt.executeUpdate(sql);
-            sql = "INSERT INTO COMPANY(name) VALUES('Mahnaz')";
 
+            sql = "INSERT INTO COMPANY(name) VALUES('"+input+"')";
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO COMPANY(name) VALUES('Zaid')";
 
-            stmt.executeUpdate(sql);
-            sql = "INSERT INTO COMPANY(name) VALUES('Sumit')";
-
-            stmt.executeUpdate(sql);
             System.out.println("Inserted records into the table...");
 
             // STEP 4: Clean-up environment
