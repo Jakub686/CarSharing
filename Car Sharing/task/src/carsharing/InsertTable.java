@@ -28,16 +28,16 @@ public class InsertTable {
 
             // STEP 3: Execute a query
             stmt = conn.createStatement();
-            String sql = "INSERT INTO COMPANY " + "VALUES (104, 'Zara')";
+            String sql = "INSERT INTO COMPANY(name) VALUES('ZARA')";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO COMPANY " + "VALUES (105, 'Mahnaz')";
+            sql = "INSERT INTO COMPANY(name) VALUES('Mahnaz')";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO COMPANY " + "VALUES (106, 'Zaid')";
+            sql = "INSERT INTO COMPANY(name) VALUES('Zaid')";
 
             stmt.executeUpdate(sql);
-            sql = "INSERT INTO COMPANY " + "VALUES(107, 'Sumit')";
+            sql = "INSERT INTO COMPANY(name) VALUES('Sumit')";
 
             stmt.executeUpdate(sql);
             System.out.println("Inserted records into the table...");

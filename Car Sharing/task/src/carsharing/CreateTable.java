@@ -31,8 +31,8 @@ public class CreateTable {
             //STEP 3: Execute a query
             stmt = conn.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS COMPANY " +
-                    "(id INTEGER not NULL, " +
-                    " name VARCHAR(255), " +
+                    "(id INTEGER not NULL AUTO_INCREMENT, " +
+                    " name VARCHAR(255)," +
                     " PRIMARY KEY ( id ))";
             stmt.executeUpdate(sql);
 
