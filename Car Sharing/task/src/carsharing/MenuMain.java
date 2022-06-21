@@ -15,8 +15,10 @@ public class MenuMain {
             switch (input) {
                 case "1":
                     MenuLogedIn.logedIn();
+                    break;
                 case "0":
                     endCondition = false;
+                    break;
             }
         } while (endCondition);
     }

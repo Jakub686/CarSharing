@@ -42,7 +42,7 @@ public class InsertTable {
             sql = "INSERT INTO COMPANY(name) VALUES('"+input+"')";
             stmt.executeUpdate(sql);
 
-            System.out.println("Inserted records into the table...");
+            System.out.println("The company was created!");
 
             // STEP 4: Clean-up environment
             stmt.close();
